@@ -132,6 +132,14 @@ parameter values (V in [0, 4], h in [0, 2]), and the cluster-Ising ground
 states are computed by exact diagonalization. The only stored ingredient is
 the fixed random encoding Hamiltonian in `data/cim_converter_hamiltonian.json`.
 
+## AI disclosure
+
+The original simulation code was written by the authors. Claude (Anthropic),
+used as a coding agent under the authors' direction, organized it into this
+release. It restructured the code into the `qal` package and the scripts,
+added the seeding, the documentation and the figure scripts, and checked that
+the reruns reproduce the stored results in `paper_data/`.
+
 ## Citation
 
 If you use this code, please cite the paper (Q. Ye, S. Geng, Z. Han, W. Li,
