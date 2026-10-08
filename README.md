@@ -1,5 +1,7 @@
 # Quantum automated learning: simulation code
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23242812.svg)](https://doi.org/10.5281/zenodo.23242812)
+
 Code for the numerical results in Q. Ye, S. Geng, Z. Han, W. Li, L.-M. Duan and
 D.-L. Deng, *Quantum automated learning* ([arXiv:2502.05264](https://arxiv.org/abs/2502.05264)).
 
@@ -144,8 +146,8 @@ the reruns reproduce the stored results in `paper_data/`.
 
 If you use this code, please cite the paper (Q. Ye, S. Geng, Z. Han, W. Li,
 L.-M. Duan and D.-L. Deng, *Quantum automated learning*, arXiv:2502.05264) and
-this archived version of the code (Zenodo, DOI to be added on release). See
-also `CITATION.cff`.
+this archived version of the code (Zenodo, https://doi.org/10.5281/zenodo.23242812).
+See also `CITATION.cff`.
 
 ## License
 

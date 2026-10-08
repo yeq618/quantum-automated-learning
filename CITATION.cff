@@ -3,6 +3,10 @@ message: "If you use this code, please cite the paper below."
 title: "Quantum automated learning: numerical simulation code"
 type: software
 license: MIT
+version: 1.0.0
+date-released: 2026-10-08
+doi: 10.5281/zenodo.23242812
+repository-code: "https://github.com/yeq618/quantum-automated-learning"
 authors:
   - family-names: Ye
     given-names: Qi
