@@ -1,0 +1,45 @@
+{
+  "title": "Quantum automated learning: numerical simulation code",
+  "upload_type": "software",
+  "description": "Simulation code and data for the numerical results of Q. Ye, S. Geng, Z. Han, W. Li, L.-M. Duan and D.-L. Deng, \"Quantum automated learning\" (arXiv:2502.05264). It trains quantum automated learning models on Fashion-MNIST, MNIST, Aubry-André Hamiltonians and cluster-Ising ground states, and draws Fig. 2b–f and Supplementary Figs. 4–8 of the paper from the stored results.",
+  "creators": [
+    {
+      "name": "Ye, Qi",
+      "affiliation": "Center for Quantum Information, IIIS, Tsinghua University, Beijing 100084, China; Shanghai Qi Zhi Institute, Shanghai 200232, China; School of Engineering and Applied Sciences, Harvard University, Cambridge, Massachusetts 02138, USA"
+    },
+    {
+      "name": "Geng, Shuangyue",
+      "affiliation": "Center for Quantum Information, IIIS, Tsinghua University, Beijing 100084, China; Shanghai Qi Zhi Institute, Shanghai 200232, China"
+    },
+    {
+      "name": "Han, Zizhao",
+      "affiliation": "Center for Quantum Information, IIIS, Tsinghua University, Beijing 100084, China"
+    },
+    {
+      "name": "Li, Weikang",
+      "affiliation": "Center for Quantum Information, IIIS, Tsinghua University, Beijing 100084, China"
+    },
+    {
+      "name": "Duan, L.-M.",
+      "affiliation": "Center for Quantum Information, IIIS, Tsinghua University, Beijing 100084, China; Hefei National Laboratory, Hefei 230088, China"
+    },
+    {
+      "name": "Deng, Dong-Ling",
+      "affiliation": "Center for Quantum Information, IIIS, Tsinghua University, Beijing 100084, China; Shanghai Qi Zhi Institute, Shanghai 200232, China; Hefei National Laboratory, Hefei 230088, China"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "quantum machine learning",
+    "quantum automated learning",
+    "dissipative state preparation",
+    "numerical simulation"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "arXiv:2502.05264",
+      "relation": "isSupplementTo",
+      "scheme": "arxiv"
+    }
+  ]
+}

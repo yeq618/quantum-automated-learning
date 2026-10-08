@@ -15,11 +15,11 @@ reproduces them.
 | `fashion_mnist/` | Fig. 2b–d | `simulate.py --dataset fashion_mnist` |
 | `noisy/` | Fig. 2e | `noisy.py` |
 | `reusability/` | Fig. 2f | `reusability.py` |
-| `mnist/` | Extended Data Fig. 1 | `simulate.py --dataset mnist` |
-| `aa/` | Extended Data Fig. 2 | `simulate.py --dataset aa` |
-| `cim/` | Extended Data Fig. 3 | `simulate.py --dataset cim` |
-| `spectrum_scaling/` | Extended Data Fig. 4 | `spectrum_scaling.py` |
-| `fashion_mnist_large_lr/` | Extended Data Fig. 5 | `simulate.py --dataset fashion_mnist --lr 0.8 --steps 10 --report-interval 1 --tag fashion_mnist_large_lr` |
+| `mnist/` | Supplementary Fig. 4 | `simulate.py --dataset mnist` |
+| `aa/` | Supplementary Fig. 5 | `simulate.py --dataset aa` |
+| `cim/` | Supplementary Fig. 6 | `simulate.py --dataset cim` |
+| `spectrum_scaling/` | Supplementary Fig. 7 | `spectrum_scaling.py` |
+| `fashion_mnist_large_lr/` | Supplementary Fig. 8 | `simulate.py --dataset fashion_mnist --lr 0.8 --steps 10 --report-interval 1 --tag fashion_mnist_large_lr` |
 
 ## File formats
 

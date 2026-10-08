@@ -3,21 +3,6 @@
 Code for the numerical results in Q. Ye, S. Geng, Z. Han, W. Li, L.-M. Duan and
 D.-L. Deng, *Quantum automated learning* ([arXiv:2502.05264](https://arxiv.org/abs/2502.05264)).
 
-## What is simulated
-
-Every training sample x with label y is turned into the Hamiltonian
-
-    H_x = I - U(x)^† P_y U(x),
-
-where U(x) encodes the sample (a parametrized circuit for images, real-time
-evolution for Hamiltonians, or an encoded ground state) and P_y projects the
-middle qubit onto the label. ⟨ψ|H_x|ψ⟩ is the probability of predicting the
-wrong label. A training step applies the post-selected update
-|ψ⟩ ← (I − η H_x)|ψ⟩ / ‖·‖ for a randomly drawn sample, starting from a random
-computational basis state. The simulations store every H_x as a dense matrix
-and track the state vector exactly (a density matrix with gate noise for
-Fig. 2e).
-
 ## Layout
 
 ```
@@ -30,10 +15,10 @@ qal/                    library
   analysis.py           majority vote and reusability statistics
   plotting.py           figure panels
 scripts/
-  simulate.py           training runs (Fig. 2b-d, Extended Data Figs. 1-3 and 5)
+  simulate.py           training runs (Fig. 2b-d, Supplementary Figs. 4-6 and 8)
   reusability.py        state reusability (Fig. 2f)
   noisy.py              training with depolarizing noise (Fig. 2e)
-  spectrum_scaling.py   spectrum of H_S for 5 to 12 qubits (Extended Data Fig. 4)
+  spectrum_scaling.py   spectrum of H_S for 5 to 12 qubits (Supplementary Fig. 7)
   make_figures.py       draws all panels from results/ or paper_data/
   run_all.sh            runs everything with the settings of the paper
   prepare_datasets.py   rebuilds data/*.npz from the original MNIST and Fashion-MNIST files
@@ -60,7 +45,10 @@ runs shown in the paper, all made with the default settings and `--seed 5`.
 python scripts/make_figures.py --source paper
 ```
 
-draws the panels into `figures/paper/`.
+draws the panels into `figures/paper/`: `fig2_bf.pdf` (Fig. 2b–f) and
+`supp_fig4.pdf` … `supp_fig8.pdf` (Supplementary Figs. 4–8), at their final
+print size. Fig. 1 and Fig. 2a are schematics drawn separately and are not
+produced by this code.
 
 **Rerunning the simulations.** `bash scripts/run_all.sh` runs everything with
 the settings of the paper (set `WORKERS` to the number of processes). The
@@ -71,11 +59,11 @@ scripts can also be run one by one:
 | Fig. 2b–d | `python scripts/simulate.py --dataset fashion_mnist` | `fashion_mnist/` |
 | Fig. 2e | `python scripts/noisy.py` | `noisy/` |
 | Fig. 2f | `python scripts/reusability.py` | `reusability/` |
-| Extended Data Fig. 1 | `python scripts/simulate.py --dataset mnist` | `mnist/` |
-| Extended Data Fig. 2 | `python scripts/simulate.py --dataset aa` | `aa/` |
-| Extended Data Fig. 3 | `python scripts/simulate.py --dataset cim` | `cim/` |
-| Extended Data Fig. 4 | `python scripts/spectrum_scaling.py` | `spectrum_scaling/` |
-| Extended Data Fig. 5 | `python scripts/simulate.py --dataset fashion_mnist --lr 0.8 --steps 10 --report-interval 1 --tag fashion_mnist_large_lr` | `fashion_mnist_large_lr/` |
+| Supplementary Fig. 4 | `python scripts/simulate.py --dataset mnist` | `mnist/` |
+| Supplementary Fig. 5 | `python scripts/simulate.py --dataset aa` | `aa/` |
+| Supplementary Fig. 6 | `python scripts/simulate.py --dataset cim` | `cim/` |
+| Supplementary Fig. 7 | `python scripts/spectrum_scaling.py` | `spectrum_scaling/` |
+| Supplementary Fig. 8 | `python scripts/simulate.py --dataset fashion_mnist --lr 0.8 --steps 10 --report-interval 1 --tag fashion_mnist_large_lr` | `fashion_mnist_large_lr/` |
 
 Then `python scripts/make_figures.py` draws the panels into `figures/results/`
 and writes the main numbers to `summary.json`. With the default seed and the
@@ -94,7 +82,7 @@ processes per job on a many-core server:
 | Training run, 100 steps | 20 s |
 | Fig. 2f, 10,000 steps | 1.5 min |
 | Fig. 2e, 3 noise rates (20 workers) | 7.5 min |
-| Extended Data Fig. 4 (48 workers) | 9 min, mostly the 12-qubit case |
+| Supplementary Fig. 7 (48 workers) | 9 min, mostly the 12-qubit case |
 
 Set `OMP_NUM_THREADS=1` (as `run_all.sh` does) when using many worker
 processes. The cache location can be changed with `QAL_CACHE_DIR`.
@@ -104,8 +92,8 @@ processes. The cache location can be changed with `QAL_CACHE_DIR`.
 - **Random seeds.** Each script takes `--seed` (default 5, used for all
   figures of the paper). With the same seed and sizes, the train/test split and
   all results are identical, independent of the number of workers. The scripts
-  with a given seed share one cache, so Fig. 2b–d, Fig. 2f and Extended Data
-  Fig. 5 use the same samples.
+  with a given seed share one cache, so Fig. 2b–d, Fig. 2f and Supplementary
+  Fig. 8 use the same samples.
 - **Spectra.** The spectrum panels show H_S of the training set. The sorted
   spectrum is averaged with its mirror image E → 1 − E. The raw spectra are
   already nearly symmetric (the largest change is 0.009), and `--raw-spectrum`
@@ -113,7 +101,10 @@ processes. The cache location can be changed with `QAL_CACHE_DIR`.
 - **Reusability statistics.** The number of steps to recover (NSR) is measured
   from one prediction to the next and grouped by the outcome of the first one.
   The initial training from the random state counts as following a wrong
-  prediction.
+  prediction. The pie chart and the averages in Fig. 2f use all 10,000 steps.
+  The curve shows the steps up to two steps after the first correct
+  prediction that follows a wrong one (166 steps with seed 5), so that a
+  whole recovery from a wrong prediction is visible.
 - **Encoding Hamiltonian for cluster-Ising states.** `data/cim_converter_hamiltonian.json`
   is a fixed random 20-qubit Hamiltonian (`RandomHamiltonian(10, 10, 100)` in
   `qal/quantum_basics.py`), defined for 10-qubit states.
@@ -127,6 +118,9 @@ processes. The cache location can be changed with `QAL_CACHE_DIR`.
 MNIST (LeCun et al., 1998) and Fashion-MNIST (Xiao et al., 2017, MIT license),
 with arrays `images` (28×28, uint8) and `labels`. They are the training and
 test sets of the original releases, concatenated in this order.
+MNIST is included for convenience under the terms of its original release
+(http://yann.lecun.com/exdb/mnist/), and Fashion-MNIST under the MIT license
+(https://github.com/zalandoresearch/fashion-mnist).
 `scripts/prepare_datasets.py` rebuilds them from the original IDX files and
 checks them against the files used for the paper. All further processing
 (classes 1 and 9, downsampling to n×n pixels with anti-aliasing, unit 2-norm)
@@ -140,7 +134,10 @@ the fixed random encoding Hamiltonian in `data/cim_converter_hamiltonian.json`.
 
 ## Citation
 
-See `CITATION.cff`.
+If you use this code, please cite the paper (Q. Ye, S. Geng, Z. Han, W. Li,
+L.-M. Duan and D.-L. Deng, *Quantum automated learning*, arXiv:2502.05264) and
+this archived version of the code (Zenodo, DOI to be added on release). See
+also `CITATION.cff`.
 
 ## License
 

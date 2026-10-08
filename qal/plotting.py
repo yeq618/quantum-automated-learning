@@ -86,7 +86,7 @@ def panel_label(fig, ax, letter, dx_mm=-9.0, dy_mm=1.5):
 
 
 def training(ax, df, max_step=100, xticks_every_step=False):
-    """Majority-vote test accuracy and training accuracy versus step (Fig. 2b, ED Figs. 1a-3a and 5)."""
+    """Majority-vote test accuracy and training accuracy versus step (Fig. 2b, Supplementary Figs. 4a-6a and 8)."""
     if max_step is not None:
         df = df[df['step'] <= max_step]
     styles = [('k', '', 0, '--'), (COLOR1, 'o', 2.5, '-'), (COLOR2, '', 0, '-')]
@@ -102,7 +102,7 @@ def training(ax, df, max_step=100, xticks_every_step=False):
 
 
 def tradeoff(ax, df, max_step=100):
-    """Majority-vote test accuracy versus overall post-selection success probability (Fig. 2c, ED Figs. 1b-3b)."""
+    """Majority-vote test accuracy versus overall post-selection success probability (Fig. 2c, Supplementary Figs. 4b-6b)."""
     if max_step is not None:
         df = df[df['step'] <= max_step]
     styles = [('k', '', 0, '--'), (COLOR1, 'o', 2.5, '-'), (COLOR2, 'd', 2.5, '-')]
@@ -126,7 +126,7 @@ def symmetrize_spectrum(eigenvalues):
 
 
 def spectrum(ax, eigenvalues, symmetrize=True):
-    """Histogram of the eigenvalues of H_S (Fig. 2d, ED Figs. 1c-3c)."""
+    """Histogram of the eigenvalues of H_S (Fig. 2d, Supplementary Figs. 4c-6c)."""
     e = symmetrize_spectrum(eigenvalues) if symmetrize else np.sort(eigenvalues)
     ax.hist(e, bins=21, histtype='stepfilled', edgecolor='k', facecolor='#EEF3F2', linewidth=0.8)
     ax.set_xlabel('Energy')
@@ -243,7 +243,7 @@ def reusability(ax, df, steps_shown=None, threshold=0.15, min_label_steps=3, pie
 
 
 def spectrum_scaling(fig, rect, eigenvalues_by_qubits, symmetrize=True):
-    """3D histogram of the spectrum of H_S versus the number of qubits (Extended Data Fig. 4)."""
+    """3D histogram of the spectrum of H_S versus the number of qubits (Supplementary Fig. 7)."""
     ax = fig.add_axes(rect, projection='3d')
     qubits = sorted(eigenvalues_by_qubits)
     bins = np.linspace(0.0, 1.0, 22)

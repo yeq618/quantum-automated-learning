@@ -5,7 +5,7 @@
 
 Writes to figures/<source>/:
   fig2_bf.pdf  Fig. 2b-f (180 mm wide; panel a is a schematic drawn separately)
-  ed1.pdf ... ed5.pdf  Extended Data Figs. 1-5 (ED Figs. 4 and 5 are one column, 88 mm, wide)
+  supp_fig4.pdf ... supp_fig8.pdf  Supplementary Figs. 4-8 (Figs. 7 and 8 are one column, 88 mm, wide)
   summary.json  the main numbers
 Missing inputs are skipped. Spectra are those of H_S for the training set,
 with the sorted spectrum averaged with its mirror image E -> 1 - E.
@@ -118,11 +118,11 @@ def main():
     else:
         print('skipped Fig. 2b-f: missing fashion_mnist, noisy or reusability results')
 
-    # Extended Data Figs. 1-3: one row of three 60 mm cells
-    for name, number in (('mnist', 1), ('aa', 2), ('cim', 3)):
+    # Supplementary Figs. 4-6: one row of three 60 mm cells
+    for name, number in (('mnist', 4), ('aa', 5), ('cim', 6)):
         df = load_training(src / name)
         if df is None:
-            print(f'skipped Extended Data Fig. {number}: no {src / name / "train.csv"}')
+            print(f'skipped Supplementary Fig. {number}: no {src / name / "train.csv"}')
             continue
         fig = figure_mm(180, 52)
         axes = [axes_mm(fig, 11 + 60 * i, 9, 46, 38) for i in range(3)]
@@ -131,33 +131,33 @@ def main():
         plotting.spectrum(axes[2], np.load(src / name / 'eigenvalues.npy'), symmetrize)
         for letter, ax in zip('abc', axes):
             plotting.panel_label(fig, ax, letter, dx_mm=-10)
-        fig.savefig(out / f'ed{number}.pdf')
+        fig.savefig(out / f'supp_fig{number}.pdf')
         plt.close(fig)
         summary[name] = final_accuracies(df)
 
-    # Extended Data Fig. 4: spectrum versus number of qubits
+    # Supplementary Fig. 7: spectrum versus number of qubits
     scaling = sorted((src / 'spectrum_scaling').glob('eigenvalues_n*.npy'))
     if scaling:
         eigenvalues = {int(p.stem.split('_n')[1]): np.load(p) for p in scaling}
         fig = figure_mm(88, 88)
         ax = plotting.spectrum_scaling(fig, [0.0, 0.0, 1.0, 1.0], eigenvalues, symmetrize)
         fit_to_width(fig, ax, 88)
-        fig.savefig(out / 'ed4.pdf')
+        fig.savefig(out / 'supp_fig7.pdf')
         plt.close(fig)
     else:
-        print('skipped Extended Data Fig. 4: no spectrum_scaling eigenvalues')
+        print('skipped Supplementary Fig. 7: no spectrum_scaling eigenvalues')
 
-    # Extended Data Fig. 5: one column wide
+    # Supplementary Fig. 8: one column wide
     df = load_training(src / 'fashion_mnist_large_lr')
     if df is not None:
         fig = figure_mm(88, 64)
         ax = axes_mm(fig, 12, 9, 72, 52)
         plotting.training(ax, df, max_step=None, xticks_every_step=True)
-        fig.savefig(out / 'ed5.pdf')
+        fig.savefig(out / 'supp_fig8.pdf')
         plt.close(fig)
         summary['fashion_mnist_large_lr'] = final_accuracies(df, step=None)
     else:
-        print('skipped Extended Data Fig. 5: no fashion_mnist_large_lr results')
+        print('skipped Supplementary Fig. 8: no fashion_mnist_large_lr results')
 
     (out / 'summary.json').write_text(json.dumps(summary, indent=1))
     print(json.dumps(summary, indent=1))

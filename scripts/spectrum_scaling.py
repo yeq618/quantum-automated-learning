@@ -1,4 +1,4 @@
-"""Spectrum of H_S for Fashion-MNIST on 5 to 12 qubits (Extended Data Fig. 4).
+"""Spectrum of H_S for Fashion-MNIST on 5 to 12 qubits (Supplementary Fig. 7).
 
 For n qubits the images are downsampled to n x n pixels. The training set is
 drawn as in simulate.py, so with the same seed and n = 10 it contains the same

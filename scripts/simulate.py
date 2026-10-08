@@ -1,7 +1,7 @@
 """Train the QAL model on one dataset and log the test and training accuracy.
 
-Produces the data of Fig. 2b-d (fashion_mnist), Extended Data Figs. 1-3
-(mnist, aa, cim) and Extended Data Fig. 5 (larger learning rate). Results go
+Produces the data of Fig. 2b-d (fashion_mnist), Supplementary Figs. 4-6
+(mnist, aa, cim) and Supplementary Fig. 8 (larger learning rate). Results go
 to results/<tag>/: train.csv (one row per report), the spectrum of H_S for the
 training set (eigenvalues.npy) and config.json.
 
