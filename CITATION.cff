@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "Quantum automated learning: numerical simulation code"
+type: software
+license: MIT
+authors:
+  - family-names: Ye
+    given-names: Qi
+  - family-names: Geng
+    given-names: Shuangyue
+  - family-names: Han
+    given-names: Zizhao
+  - family-names: Li
+    given-names: Weikang
+  - family-names: Duan
+    given-names: L.-M.
+  - family-names: Deng
+    given-names: Dong-Ling
+preferred-citation:
+  type: article
+  title: "Quantum automated learning with provable and explainable trainability"
+  authors:
+    - family-names: Ye
+      given-names: Qi
+    - family-names: Geng
+      given-names: Shuangyue
+    - family-names: Han
+      given-names: Zizhao
+    - family-names: Li
+      given-names: Weikang
+    - family-names: Duan
+      given-names: L.-M.
+    - family-names: Deng
+      given-names: Dong-Ling
+  year: 2025
+  url: "https://arxiv.org/abs/2502.05264"
+  identifiers:
+    - type: other
+      value: "arXiv:2502.05264"
+      description: arXiv preprint

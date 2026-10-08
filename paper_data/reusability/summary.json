@@ -1,0 +1,7 @@
+{
+ "predictions": 1599,
+ "nsr_after_wrong": 27.952380952380953,
+ "nsr_after_correct": 2.9560835133189345,
+ "fraction_wrong": 0.13133208255159476,
+ "fraction_correct": 0.8686679174484052
+}

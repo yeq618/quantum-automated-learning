@@ -1,0 +1,15 @@
+{
+ "qubits": 5,
+ "size": 5,
+ "train_size": 500,
+ "steps": 200,
+ "report_interval": 5,
+ "lr": 0.2,
+ "noise_rates": [
+  0.0,
+  0.001,
+  0.005
+ ],
+ "seed": 5,
+ "workers": 20
+}

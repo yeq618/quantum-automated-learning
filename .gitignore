@@ -1,0 +1,11 @@
+/cache
+results/
+figures/
+data/fonts/
+_regression/
+.venv/
+__pycache__/
+*.pyc
+logs/
+._*
+.DS_Store

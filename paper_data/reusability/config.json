@@ -1,0 +1,12 @@
+{
+ "qubits": 10,
+ "size": 10,
+ "train_size": 500,
+ "test_size": 500,
+ "steps": 10000,
+ "lr": 0.2,
+ "threshold": 0.15,
+ "seed": 5,
+ "workers": 16,
+ "cache": "fashion_mnist_10q_size10_train500_test500_seed5"
+}

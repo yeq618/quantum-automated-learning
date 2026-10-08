@@ -1,0 +1,15 @@
+{
+ "dataset": "fashion_mnist",
+ "qubits": 10,
+ "size": 10,
+ "t": 2.0,
+ "train_size": 500,
+ "test_size": 500,
+ "steps": 10,
+ "lr": 0.8,
+ "report_interval": 1,
+ "seed": 5,
+ "workers": 16,
+ "tag": "fashion_mnist_large_lr",
+ "cache": "fashion_mnist_10q_size10_train500_test500_seed5"
+}
